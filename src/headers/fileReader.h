@@ -4,5 +4,4 @@
 
 using namespace std;
 
-ifstream readCNFFile(string filePath);
-Clause fileToClause(ifstream stream);
+Clause fileToClause(string filePath);

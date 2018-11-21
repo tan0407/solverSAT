@@ -1,5 +1,5 @@
 #include "headers/Clause.h"
 
-Clause createClause(){
+Clause createClause(vector<Litteral> litteraux){
      
 }
