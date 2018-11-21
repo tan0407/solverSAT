@@ -3,7 +3,7 @@ private:
     bool value;
     int number;
 public:
-    Atom();
+    Atom(int number,bool value);
     bool value();
     int number();
     void setValue();

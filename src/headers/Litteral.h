@@ -5,7 +5,8 @@ private:
     Atom atom;
     bool negative;
 public:
-    Litteral();
+    Litteral(Atom atome);
+    Litteral (int number, bool value);
     bool isNegative();
-    void setNegative();
+    void setNegative(bool negative);
 }
