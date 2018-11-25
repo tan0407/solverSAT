@@ -7,7 +7,6 @@ private:
     vector<Litteral> clause;
 public: 
     Clause();
-    Clause(vector<Litteral> litteraux);
     void addLitteral(Litteral litteral);
-
+    vector<Litteral> getClause();
 }

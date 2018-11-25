@@ -1,7 +1,6 @@
-#include <ifstream>
+#include <fstream>
 #include <string>
 #include "Clause.h"
 
-using namespace std;
 
-Clause fileToClause(string filePath);
+vector<Clause> fileToClause(string filePath);

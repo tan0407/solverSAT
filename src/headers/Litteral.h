@@ -1,12 +1,14 @@
-#include "Atom.h"
-
+using namespace std;
 class Litteral{
 private:
-    Atom atom;
+    bool value;
+    int number;
     bool negative;
 public:
-    Litteral(Atom atome);
-    Litteral (int number, bool value);
+    Litteral (int number,bool negative);
     bool isNegative();
     void setNegative(bool negative);
+    bool getValue();
+    void setValue(bool value);
+    int getNumber();
 }

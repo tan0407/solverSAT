@@ -1,17 +1,35 @@
-#include "./headers/fileReader.h"
+#include "headers/fileReader.h"
 #include <iostream>
 #include <string>
+#include <math.h>
 
-vector<Litteral> fileToClause(string filePath){
-    ifstream file;
-    file.open(filePath);
+vector<Clause> fileToClause(string filePath){
+    ifstream file(filePath);
+    
     if (!file){
         cout<<"Error while reading file"<<endl;
         return EXIT_FAILURE;
     }
-    string line;
-    while (getline(infile, line)){
-    istringstream iss(line);
+    string mot;
+    file>> mot; //p
+    file>> mot; //cnf
+    int nbVariables;
+    file>> nbVariables; //nb variables
+    int nbClauses;
+    file>> nbClauses; //nb clauses
     
+    vector<Clause> clauses (nbClauses,Clause());
+    int actualClause=0;
+    int variable;
+    while(actualClause<nbClauses){
+        file>>variable;
+        if(variable==0){
+            actualClause++;
+            continue;
+        }
+        clauses[actualClause].addLitteral(Litteral(abs(variable),variable<0?true:false));          
     }
+
+    file.close();
+    return clauses;
 }
