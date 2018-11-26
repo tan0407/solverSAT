@@ -1,4 +1,5 @@
 using namespace std;
+#include <string>
 class Litteral{
 private:
     bool value;
@@ -11,4 +12,5 @@ public:
     bool getValue();
     void setValue(bool value);
     int getNumber();
-}
+    string toString();
+};

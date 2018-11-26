@@ -9,4 +9,4 @@ public:
     Clause();
     void addLitteral(Litteral litteral);
     vector<Litteral> getClause();
-}
+};

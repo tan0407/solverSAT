@@ -1,14 +1,14 @@
 #include "headers/fileReader.h"
 #include <iostream>
 #include <string>
-#include <math.h>
+
 
 vector<Clause> fileToClause(string filePath){
     ifstream file(filePath);
     
     if (!file){
         cout<<"Error while reading file"<<endl;
-        return EXIT_FAILURE;
+        exit(-1);
     }
     string mot;
     file>> mot; //p
