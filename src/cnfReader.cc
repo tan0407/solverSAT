@@ -6,6 +6,11 @@
 using namespace std;
 
 vector<vector<int> > fileToClause(char* filePath){
+    string fp(filePath);
+    if(fp.substr(fp.find_last_of(".")+1)!="cnf"){
+        cout<<"Error : file extension invalid"<<endl;
+        exit(-1);
+    }
     ifstream file(filePath);
 
     if (!file){

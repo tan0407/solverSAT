@@ -3,6 +3,10 @@
 using namespace std;
 
 int main(int argc, char **argv) {
+	if (argc!=1){
+		cout<<"Argument error : specify one argument"<<endl;
+		exit(-1);
+	}
 	char* file = argv[1];
 	vector<vector<int> > clausesInFile = fileToClause(file);
 
