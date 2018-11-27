@@ -7,7 +7,7 @@ using namespace std;
 
 vector<vector<int> > fileToClause(char* filePath){
     ifstream file(filePath);
-   // file.open(filePath);
+
     if (!file){
         cout<<"Error while reading file"<<endl;
         exit(-1);

@@ -2,17 +2,22 @@ SHELL=bash
 GCC=g++
 LDFLAGS= -lm
 CFLAGS = -Wall -Wno-sign-compare
-EXEC = test_cnf.exe
+EXEC = solverSAT.exe
 
 all: $(EXEC)
 
 clean:
 	@rm -rf *.o
 
-test_cnf.exe:  cnf_read.o test_cnf.o
+
+solverSAT.exe:  Clause.o cnfReader.o solverSAT.o
 	@$(GCC) -o $@ $^ $(LDFLAGS)
 
-test_cnf.o:	./test/test_CNFReader.cc  
+Clause.o:	./src/Clause.cc  
 	@$(GCC) -o $@ -c $< $(CFLAGS)
-cnf_read.o : 	./src/cnfReader.cc ./src/variables.cc ./src/headers/fileReader.h ./src/headers/Clause.h  ./src/headers/Litteral.h
+
+cnfReader.o : 	./src/cnfReader.cc 
+	@$(GCC) -o $@ -c $< $(CFLAGS)
+
+solverSAT.o : 	./src/solverSAT.cc
 	@$(GCC) -o $@ -c $< $(CFLAGS)
