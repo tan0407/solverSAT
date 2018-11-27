@@ -1,11 +1,14 @@
 #include "headers/fileReader.h"
+//#include "headers/Clause.h"
+//#include "headers/Litteral.h"
+#include <fstream>
 #include <iostream>
 #include <string>
-
+using namespace std;
 
 vector<Clause> fileToClause(string filePath){
     ifstream file(filePath);
-    
+   // file.open(filePath);
     if (!file){
         cout<<"Error while reading file"<<endl;
         exit(-1);
@@ -27,7 +30,7 @@ vector<Clause> fileToClause(string filePath){
             actualClause++;
             continue;
         }
-        clauses[actualClause].addLitteral(Litteral(abs(variable),variable<0?true:false));          
+        clauses[actualClause].addLitteral(abs(variable));          
     }
 
     file.close();

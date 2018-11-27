@@ -12,7 +12,7 @@ clean:
 test_cnf.exe:  cnf_read.o test_cnf.o
 	@$(GCC) -o $@ $^ $(LDFLAGS)
 
-test_cnf.o:	./test/test_CNFReader.cc ./src/variables.cc ./src/headers/Clause.h  ./src/headers/Litteral.h
+test_cnf.o:	./test/test_CNFReader.cc  
 	@$(GCC) -o $@ -c $< $(CFLAGS)
-cnf_read.o : ./src/cnfReader.cc ./src/headers/fileReader.h
+cnf_read.o : 	./src/cnfReader.cc ./src/variables.cc ./src/headers/fileReader.h ./src/headers/Clause.h  ./src/headers/Litteral.h
 	@$(GCC) -o $@ -c $< $(CFLAGS)

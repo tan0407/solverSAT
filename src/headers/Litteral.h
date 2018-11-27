@@ -1,5 +1,8 @@
+#ifndef LITTERAL_H
+
 using namespace std;
 #include <string>
+
 class Litteral{
 private:
     bool value;
@@ -14,3 +17,5 @@ public:
     int getNumber();
     string toString();
 };
+
+#endif

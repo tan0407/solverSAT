@@ -1,12 +1,16 @@
-#include "Litteral.h"
+#ifndef CLAUSE_H
+
+//#include "Litteral.h"
 #include <vector>
 using std::vector;
 
 class Clause {
 private:
-    vector<Litteral> clause;
+    vector<int> clause;
 public: 
     Clause();
-    void addLitteral(Litteral litteral);
-    vector<Litteral> getClause();
+    void addLitteral(int litteral);
+    vector<int> getClause();
 };
+
+#endif

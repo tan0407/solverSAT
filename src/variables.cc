@@ -2,15 +2,11 @@
 #include <vector>
 
 Clause::Clause(){
-    clause = vector<Litteral>();
+    clause = vector<int>();
 }
-void Clause::addLitteral(Litteral litteral){
+void Clause::addLitteral(int litteral){
     clause.push_back(litteral);
 }
-vector<Litteral> Clause::getClause(){
+vector<int> Clause::getClause(){
     return this->clause;
-}
-
-int Litteral::getNumber(){
-    return this->number;
 }
