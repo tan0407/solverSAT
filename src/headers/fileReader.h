@@ -7,7 +7,7 @@
 using namespace std;
 
 
-vector<vector<int> > fileToClause(char* filePath);
+vector<vector<int> > fileToClause(char* filePath,vector<int>& nbVar);
 
 
 

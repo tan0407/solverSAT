@@ -10,10 +10,10 @@ clean:
 	@rm -rf *.o
 
 
-solverSAT.exe:  Clause.o cnfReader.o solverSAT.o
+solverSAT.exe:  cnfReader.o algorithms.o solverSAT.o
 	@$(GCC) -o $@ $^ $(LDFLAGS)
 
-Clause.o:	./src/Clause.cc  
+algorithms.o:	./src/algorithms.cc
 	@$(GCC) -o $@ -c $< $(CFLAGS)
 
 cnfReader.o : 	./src/cnfReader.cc 

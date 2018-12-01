@@ -5,7 +5,7 @@
 #include <cstdlib>
 using namespace std;
 
-vector<vector<int> > fileToClause(char* filePath){
+vector<vector<int> > fileToClause(char* filePath,vector<int>& var){
     string fp(filePath);
     if(fp.substr(fp.find_last_of(".")+1)!="cnf"){
         cout<<"Error : file extension invalid"<<endl;
@@ -24,7 +24,9 @@ vector<vector<int> > fileToClause(char* filePath){
     file>> nbVariables; //nb variables
     int nbClauses;
     file>> nbClauses; //nb clauses
-
+    for (int i=0;i<nbVariables;i++){
+        var.push_back(i);
+    }   
     vector<vector<int> > clauses (nbClauses);
     int actualClause=0;
     int variable;
