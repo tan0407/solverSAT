@@ -1,13 +1,11 @@
 #include "headers/algorithms.h"
-
+#include <iostream>
+using namespace std;
 vector<vector<int>> simplifyCnf(vector<vector<int> > cnf, int literal) {
-
 	vector<vector<int>> cnf_new = vector<vector<int>>(cnf);
-
 	int not_literal = literal * (-1);
-
+    
 	for (int i = 0; i < cnf_new.size(); i++) {
-
 		for (int j = 0; j < cnf_new[i].size(); j++) {
 			if (cnf_new[i][j] == not_literal) {
 				cnf_new[i].erase(cnf_new[i].begin() + j);
@@ -16,11 +14,11 @@ vector<vector<int>> simplifyCnf(vector<vector<int> > cnf, int literal) {
 			else if (cnf_new[i][j] == literal) {
 				cnf_new.erase(cnf_new.begin() + i);
 				i--;
+                break;
 			}
 		}
 
 	}
-
 	return cnf_new;
 }
 
@@ -29,6 +27,7 @@ bool backtracking(vector<vector<int>> cnf, vector<int> var, vector<int> &model){
 	vector<int> variables = var;
 	int v = variables.back();
 	variables.pop_back();
+
 	vector< vector<int>> simplified = simplifyCnf(cnf, v);
 
 	if(simplified.empty()){

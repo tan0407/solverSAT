@@ -1,7 +1,7 @@
 SHELL=bash
 GCC=g++
 LDFLAGS= -lm
-CFLAGS = -Wall -Wno-sign-compare
+CFLAGS = -Wall -Wno-sign-compare -g
 EXEC = solverSAT.exe
 
 all: $(EXEC)
