@@ -59,8 +59,8 @@ vector<vector<int>> simplifyCnf(vector<vector<int> > cnf, int literal) {
 bool backtracking(vector<vector<int>> cnf, vector<int> var, vector<int> &model){
 
 	vector<int> variables = var;
-	int v = variables[0];		
-	variables.erase(variables.begin());
+	int v = variables.back();		
+	variables.pop_back();
 
 	vector< vector<int>> simplified = simplifyCnf(cnf, v);
 
