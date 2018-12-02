@@ -5,6 +5,12 @@
 #include <cstdlib>
 using namespace std;
 
+/*
+	*@desc Lit le fichier .cnf et retourne la liste des clauses en initialisant en meme temps la liste des variables
+	*@param char * filePath - Le nom du fichier avec son chemin
+            vector<int>& var - La liste des variables qui va etre initialisée
+	*@return vector<vector<int>> - La liste des clauses dans le fichier
+*/
 vector<vector<int> > fileToClause(char* filePath,vector<int>& var){
     string fp(filePath);
     //Verify the file extension
