@@ -21,18 +21,18 @@ int main(int argc, char **argv) {
 
 	vector<vector<int> > clauses = fileToClause(file,variables);
 	bool sat = backtracking(clauses,variables,model);
-	std::reverse(model.begin(),model.end()); 
+	
 
 	if(sat){
 		cout << "s SATISFIABLE" << endl;
 		cout << "v ";
-		int x = abs(model[0]);
+		int x = abs(model.back());
 		for(int i = 1;i<x;i++)
 			cout<<i<<" ";
-		for (int i : model)
-			cout<<i<<" ";
-		for(int i = model.back()+1;i<=variables.size();i++)
-			cout <<i<<" ";
+		for (int i = model.size()-1 ; i>= 0 ; i--)
+			cout<<model[i]<<" ";
+		for(int i = model[0]+1;i<=variables.size();i++)
+			cout <<i<<" "; 
 		cout<<endl;
 	}
 	else{
