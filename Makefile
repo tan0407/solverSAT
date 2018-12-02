@@ -2,7 +2,7 @@ SHELL=bash
 GCC=g++
 LDFLAGS= -lm
 CFLAGS = -Wall -Wno-sign-compare -g
-EXEC = solverSAT.exe
+EXEC = solverSAT
 
 all: $(EXEC)
 
@@ -10,7 +10,7 @@ clean:
 	@rm -rf *.o
 
 
-solverSAT.exe:  cnfReader.o algorithms.o solverSAT.o
+solverSAT:  cnfReader.o algorithms.o solverSAT.o
 	@$(GCC) -o $@ $^ $(LDFLAGS)
 
 algorithms.o:	./src/algorithms.cc

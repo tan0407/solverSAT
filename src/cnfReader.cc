@@ -25,7 +25,7 @@ vector<vector<int> > fileToClause(char* filePath,vector<int>& var){
     int nbClauses;
     file>> nbClauses; //nb clauses
     for (int i=0;i<nbVariables;i++){
-        var.push_back(i);
+        var.push_back(i+1);
     }   
     vector<vector<int> > clauses (nbClauses);
     int actualClause=0;

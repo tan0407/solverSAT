@@ -13,20 +13,26 @@ int main(int argc, char **argv) {
 	char* file = argv[1];
 	
 	string arg(file);
+
 	vector<int> variables{};
 	vector<int> model{};
+
 	vector<vector<int> > clauses = fileToClause(file,variables);
-	
 	bool sat = backtracking(clauses,variables,model);
+
+
 	if(sat){
-		cout << "SATISFIABLE" << endl;
-		cout<< "Model :";
+		cout << "s SATISFIABLE" << endl;
+		cout << "v ";
 		for (int i : model)
-			cout<<" "<<i<<" ";
+			cout<<i<<" ";
+		for(int i = model.size()+1;i<=variables.size();i++)
+			cout <<i<<" ";
 		cout<<endl;
 	}
 	else{
-		cout << "UNSAT"<<endl;
+		cout << "s UNSATISFIABLE"<<endl;
+
 	}
 	
 	return 0;
