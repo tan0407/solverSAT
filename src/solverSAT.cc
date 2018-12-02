@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cmath>
+#include <algorithm>    // std::reverse
 #include "headers/fileReader.h"
 #include "headers/algorithms.h"
 using namespace std;
@@ -19,14 +21,17 @@ int main(int argc, char **argv) {
 
 	vector<vector<int> > clauses = fileToClause(file,variables);
 	bool sat = backtracking(clauses,variables,model);
-
+	std::reverse(model.begin(),model.end()); 
 
 	if(sat){
 		cout << "s SATISFIABLE" << endl;
 		cout << "v ";
+		int x = abs(model[0]);
+		for(int i = 1;i<x;i++)
+			cout<<i<<" ";
 		for (int i : model)
 			cout<<i<<" ";
-		for(int i = model.size()+1;i<=variables.size();i++)
+		for(int i = model.back()+1;i<=variables.size();i++)
 			cout <<i<<" ";
 		cout<<endl;
 	}
